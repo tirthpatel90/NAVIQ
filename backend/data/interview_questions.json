@@ -1,0 +1,302 @@
+{
+  "Python Developer": [
+    {
+      "question": "Explain how Python's GIL affects CPU-bound threads and how you mitigate it.",
+      "focus": "Runtime Internals",
+      "difficulty": "Advanced",
+      "answer": "The GIL allows only one bytecode instruction to execute at a time, so CPU-bound threads end up time-slicing and rarely scale. For parallel CPU work we move to multiprocessing, native extensions, or distribute work through Celery or Ray.",
+      "followUp": "Walk me through a workload where you still prefer threads over processes despite the GIL."
+    },
+    {
+      "question": "Differentiate __new__ and __init__ and share a real example that needs both.",
+      "focus": "Data Model",
+      "difficulty": "Intermediate",
+      "answer": "__new__ allocates and returns the instance, while __init__ configures it. Immutable subclasses (like extending tuple or str) often override __new__ to inject extra data while leaving __init__ minimal.",
+      "followUp": "How would you ensure subclasses cannot bypass your custom instantiation flow?"
+    },
+    {
+      "question": "Compare asyncio, threading, and multiprocessing for IO heavy APIs.",
+      "focus": "Concurrency",
+      "difficulty": "Intermediate",
+      "answer": "Asyncio keeps work on one thread with cooperative scheduling so it's great for tens of thousands of sockets. Threading is simpler for blocking SDKs. Multiprocessing isolates the interpreter for CPU-bound work but has higher IPC overhead.",
+      "followUp": "Describe when you would blend asyncio with worker pools in the same service."
+    },
+    {
+      "question": "How do you structure a Python package so it stays deployable across environments?",
+      "focus": "Packaging",
+      "difficulty": "Advanced",
+      "answer": "Use a src layout, pyproject metadata, dependency groups, and avoid environment-specific paths. Provide CLI entry points, health checks, and a contract for configuration so the artifact can move between bare metal, Docker, or serverless.",
+      "followUp": "What checks belong in CI to guard that packaging contract?"
+    }
+  ],
+  "Web Developer": [
+    {
+      "question": "When would you stream HTML over HTTP/2 instead of returning JSON+SPA?",
+      "focus": "Architecture",
+      "difficulty": "Advanced",
+      "answer": "Streaming HTML (or islands hydration) reduces input latency for content-heavy apps, keeps accessibility predictable, and lets you progressively enhance. I still send JSON for highly interactive dashboards where client state dominates.",
+      "followUp": "How would you monitor the back pressure of a streamed response?"
+    },
+    {
+      "question": "Explain the difference between CSS logical properties and physical properties.",
+      "focus": "Styling Systems",
+      "difficulty": "Intermediate",
+      "answer": "Logical properties (like margin-inline-start) adapt automatically to writing modes and direction, while physical ones (margin-left) assume LTR layout. Logical props are essential for localization and vertical scripts.",
+      "followUp": "Which legacy browsers still need fallbacks and how do you ship them?"
+    },
+    {
+      "question": "What is the difference between service workers and Web Workers?",
+      "focus": "Web Platform APIs",
+      "difficulty": "Intermediate",
+      "answer": "Service workers act as programmable network proxies with lifecycle events and survive page refreshes. Web Workers are in-page compute threads without network interception powers. I pair them by caching assets in the SW and pushing CPU heavy transforms into dedicated workers.",
+      "followUp": "Describe how you would debug synchronization bugs between them."
+    },
+    {
+      "question": "How do you future-proof a design system so teams can theme products without forking CSS?",
+      "focus": "Design Systems",
+      "difficulty": "Advanced",
+      "answer": "Use design tokens exported as CSS variables, enforce composition through utility classes or CSS-in-JS recipes, and document slot patterns. The tokens (color, spacing, motion) become the contract, and components consume tokens rather than hard-coded values.",
+      "followUp": "What governance rituals keep a design system healthy as new brands arrive?"
+    }
+  ],
+  "Data Scientist": [
+    {
+      "question": "How do you detect data leakage in a feature pipeline?",
+      "focus": "Model Validity",
+      "difficulty": "Advanced",
+      "answer": "Leakage happens when training features contain information unavailable at scoring time. I version feature views, freeze train/eval windows, and run permutation tests on suspicious features to see if they unrealistically boost metrics.",
+      "followUp": "Share a real bug where leakage slipped into production and how you caught it."
+    },
+    {
+      "question": "Walk through evaluating a model beyond ROC-AUC for imbalanced fraud data.",
+      "focus": "Evaluation",
+      "difficulty": "Intermediate",
+      "answer": "I inspect precision-recall curves, cost-weighted confusion matrices, and business-aware metrics like dollars recovered within analyst capacity. Sometimes I optimize expected profit subject to recall constraints instead of a single scalar metric.",
+      "followUp": "How would you justify a lower recall model that still saves more money?"
+    },
+    {
+      "question": "Compare feature stores and ad-hoc pandas joins for ML delivery.",
+      "focus": "MLOps",
+      "difficulty": "Intermediate",
+      "answer": "Feature stores centralize definitions, enforce point-in-time correctness, and provide serving APIs. Ad-hoc joins accelerate prototyping but risk drift. I start scrappy but migrate critical features once they stabilize.",
+      "followUp": "What metadata would you attach to each feature to aid governance?"
+    },
+    {
+      "question": "Explain SHAP, when it misleads, and how you correct stakeholders' interpretation.",
+      "focus": "Explainability",
+      "difficulty": "Advanced",
+      "answer": "SHAP approximates marginal contributions assuming feature independence. Correlated inputs or extrapolation can mislead. I cluster correlated features, use conditional SHAP, and pair plots with partial dependence plus narrative context.",
+      "followUp": "How do you communicate uncertainty of explanations to non-technical partners?"
+    }
+  ],
+  "DevOps Engineer": [
+    {
+      "question": "How do you design a progressive delivery strategy for a monolith moving to microservices?",
+      "focus": "Deployment",
+      "difficulty": "Advanced",
+      "answer": "I introduce canary stages behind feature flags, move critical flows first, and add contract tests between decomposed services. Observability budgets and automated rollback must land before we cut traffic to new stacks.",
+      "followUp": "Which metrics gate your promotion between progressive stages?"
+    },
+    {
+      "question": "Describe how you would harden a GitHub Actions pipeline for supply-chain threats.",
+      "focus": "Security",
+      "difficulty": "Advanced",
+      "answer": "Pin action SHAs, restrict OIDC tokens, scan artifacts, and move secrets into short-lived vault leases. Self-hosted runners need network isolation plus automatic reimaging.",
+      "followUp": "How do you prove to auditors the pipeline stayed tamper-proof?"
+    },
+    {
+      "question": "What is the golden signal approach to SRE and how do you tune alerts?",
+      "focus": "Observability",
+      "difficulty": "Intermediate",
+      "answer": "Latency, traffic, errors, and saturation provide a balanced first layer. I pair them with service-level objectives so alerts trigger on error budgets, not raw thresholds, reducing pager fatigue.",
+      "followUp": "Walk through a time you deleted alerts to improve reliability."
+    },
+    {
+      "question": "Compare Terraform and Pulumi for multi-cloud governance.",
+      "focus": "Infrastructure as Code",
+      "difficulty": "Intermediate",
+      "answer": "Terraform's declarative HCL and provider ecosystem make it the default. Pulumi lets teams reuse real languages for logic-heavy stacks. Governance depends on policy-as-code (OPA, Sentinel) regardless of engine.",
+      "followUp": "How would you prevent drift when teams bypass IaC in emergencies?"
+    }
+  ],
+  "Cybersecurity Analyst": [
+    {
+      "question": "Outline how you'd respond to a zero-day exploit in a managed SaaS product.",
+      "focus": "Incident Response",
+      "difficulty": "Advanced",
+      "answer": "Activate the IR plan, contain exposure by isolating affected services, validate compensating controls, and coordinate disclosure timelines with legal. Communication templates and evidence handling are critical to maintain trust.",
+      "followUp": "How do you rehearse for this scenario ahead of time?"
+    },
+    {
+      "question": "Explain threat modeling with STRIDE and when you augment it.",
+      "focus": "Risk Management",
+      "difficulty": "Intermediate",
+      "answer": "STRIDE covers spoofing, tampering, repudiation, information disclosure, denial-of-service, and elevation of privilege. I augment it with privacy threat catalogs (LINDDUN) or MITRE ATT&CK patterns for cloud-native systems.",
+      "followUp": "What tooling accelerates collaborative threat modeling workshops?"
+    },
+    {
+      "question": "How do you differentiate UEBA, SIEM, and SOAR?",
+      "focus": "Security Operations",
+      "difficulty": "Intermediate",
+      "answer": "SIEM aggregates logs and applies correlation rules. UEBA layers ML on behavioral baselines. SOAR orchestrates response. Mature programs blend them so detections auto-trigger playbooks but still flow through analyst validation.",
+      "followUp": "Describe a false positive pattern you eliminated recently."
+    },
+    {
+      "question": "Discuss secrets management for hybrid workloads.",
+      "focus": "Platform Security",
+      "difficulty": "Advanced",
+      "answer": "Central vaults plus dynamic credentials reduce blast radius. For hybrid, we federate identity providers, rotate keys automatically, and monitor secret usage through HSM-backed audit logs.",
+      "followUp": "How would you sunset long-lived credentials without pausing business?"
+    }
+  ],
+  "Mobile Developer": [
+    {
+      "question": "Compare SwiftUI with UIKit (or Jetpack Compose with Views) for long-lived apps.",
+      "focus": "UI Architecture",
+      "difficulty": "Intermediate",
+      "answer": "Declarative stacks accelerate feature work and accessibility, but you still bridge into imperative APIs for edge cases. Production teams often run both while they incrementally migrate screens.",
+      "followUp": "What metrics tell you the migration is worth the effort?"
+    },
+    {
+      "question": "Explain offline-first data sync strategies on mobile.",
+      "focus": "Data Layer",
+      "difficulty": "Advanced",
+      "answer": "Use local databases (Room, Core Data) with conflict resolution policies such as last-write-wins, CRDTs, or server arbitration. I log operation intent so retries remain idempotent even after app restarts.",
+      "followUp": "How would you test sync collisions under flaky networks?"
+    },
+    {
+      "question": "What is the difference between push notifications, silent pushes, and background fetch?",
+      "focus": "Platform Services",
+      "difficulty": "Intermediate",
+      "answer": "User-visible pushes display UI, silent pushes wake the app briefly without alerting users, and background fetch lets the OS opportunistically run tasks. Battery and quota considerations dictate which tool fits.",
+      "followUp": "Describe how you respect user privacy while personalizing notifications."
+    },
+    {
+      "question": "How do you secure mobile APIs beyond TLS?",
+      "focus": "Security",
+      "difficulty": "Advanced",
+      "answer": "Implement certificate pinning, signed requests, and on-device attestation (SafetyNet, DeviceCheck). Pair that with behavioral anomaly detection server-side because binaries can still be instrumented.",
+      "followUp": "What telemetry lets you distinguish automation from real devices?"
+    }
+  ],
+  "Cloud Architect": [
+    {
+      "question": "Design a multi-region active-active architecture for a stateful service.",
+      "focus": "Distributed Systems",
+      "difficulty": "Advanced",
+      "answer": "Partition traffic with latency-based routing, replicate state through quorum databases or event streams, and define clear failure domains. Consistency choices (strong vs eventual) dictate client fallbacks.",
+      "followUp": "How would you budget RPO/RTO targets per workload tier?"
+    },
+    {
+      "question": "Explain the trade-offs between Kubernetes, serverless, and managed PaaS for a new product.",
+      "focus": "Platform Strategy",
+      "difficulty": "Intermediate",
+      "answer": "Kubernetes maximizes control but raises ops cost. Serverless shines for bursty workloads with event semantics. Managed PaaS is the middle ground. I evaluate elasticity, compliance, and team skill sets before choosing.",
+      "followUp": "Which signals tell you it's time to re-platform later on?"
+    },
+    {
+      "question": "How do you run cost governance without blocking engineers?",
+      "focus": "FinOps",
+      "difficulty": "Intermediate",
+      "answer": "Tag resources, project future spend, and send socialized forecasts. Budgets become guardrails rather than gates when engineers see near real-time chargebacks plus optimization playbooks.",
+      "followUp": "Share tooling you use to predictively alert on anomalies."
+    },
+    {
+      "question": "Compare AWS IAM, Azure AD, and GCP IAM mental models.",
+      "focus": "Identity",
+      "difficulty": "Advanced",
+      "answer": "AWS relies on policies attached to identities or resources, Azure AD centralizes roles via RBAC plus conditional access, and GCP IAM uses resource hierarchies with policy inheritance. A multi-cloud stance normalizes roles into a single source of truth and provisions through automation.",
+      "followUp": "How do you express least privilege consistently across clouds?"
+    }
+  ],
+  "AI/ML Engineer": [
+    {
+      "question": "What is the difference between fine-tuning, adapters, and prompt engineering for LLMs?",
+      "focus": "LLM Operations",
+      "difficulty": "Advanced",
+      "answer": "Prompting changes inputs only, adapters add lightweight trainable layers, and full fine-tuning updates every weight. I pick the smallest intervention that meets accuracy, latency, and governance requirements.",
+      "followUp": "Describe how you would monitor degradation after a fine-tune."
+    },
+    {
+      "question": "Explain vector databases and when you still prefer keyword search.",
+      "focus": "Retrieval",
+      "difficulty": "Intermediate",
+      "answer": "Vector stores index embeddings for semantic similarity. They excel for fuzzy queries, but keyword search remains superior for structured filters, legal discovery, and cases needing exact term control. Hybrid systems combine both.",
+      "followUp": "How do you keep embeddings fresh as taxonomies evolve?"
+    },
+    {
+      "question": "How would you productionize a reinforcement learning model?",
+      "focus": "MLOps",
+      "difficulty": "Advanced",
+      "answer": "Isolate experimentation from serving, define safety constraints, run canary rollouts with shadow policies, and log every decision for counterfactual evaluation. Reward shaping must align tightly with product goals.",
+      "followUp": "Which offline metrics do you trust before an online test?"
+    },
+    {
+      "question": "Discuss ethical considerations when shipping generative AI features.",
+      "focus": "Responsible AI",
+      "difficulty": "Intermediate",
+      "answer": "We must address bias, attribution, and misuse. I add guardrails such as safety classifiers, watermarking, human-in-the-loop approvals, and transparent messaging about AI involvement.",
+      "followUp": "How do you audit third-party models for compliance?"
+    }
+  ],
+  "Product Manager": [
+    {
+      "question": "How do you prioritize a roadmap when finance, sales, and UX have conflicting goals?",
+      "focus": "Strategy",
+      "difficulty": "Intermediate",
+      "answer": "I anchor every debate to measurable outcomes, translate stakeholder requests into customer problems, and run scenarios to show trade-offs. Transparent scoring (RICE, value vs effort) plus narrative helps align the group.",
+      "followUp": "Give an example where you deliberately chose the lower ROI item."
+    },
+    {
+      "question": "Describe how you validate problem-solution fit before committing engineering weeks.",
+      "focus": "Discovery",
+      "difficulty": "Intermediate",
+      "answer": "I pair qualitative interviews with lightweight experiments (fake doors, concierge MVPs). Success is evidence of desirability, viability, and feasibility, not just a survey score.",
+      "followUp": "What is the fastest experiment you have ever run?"
+    },
+    {
+      "question": "How do you measure the success of a platform capability versus a surface feature?",
+      "focus": "Analytics",
+      "difficulty": "Advanced",
+      "answer": "Platform work ladders up to velocity metrics (cycle time, coverage), downstream NPS, and cost savings. Surface features map to activation, retention, or revenue. I ensure each initiative reports on leading and lagging indicators.",
+      "followUp": "Share dashboards you show to executives versus engineers."
+    },
+    {
+      "question": "Explain how you keep a remote trio (PM, design, engineering) aligned week to week.",
+      "focus": "Collaboration",
+      "difficulty": "Intermediate",
+      "answer": "Cadence rituals (pitch reviews, async updates) plus shared artifacts (PRDs, journey maps, tech plans) ensure context stays fresh. I rotate ownership of demos so every discipline showcases progress.",
+      "followUp": "Describe a time misalignment almost derailed delivery."
+    }
+  ],
+  "UX Designer": [
+    {
+      "question": "How do you balance experimentation speed with accessibility compliance?",
+      "focus": "Design Ops",
+      "difficulty": "Intermediate",
+      "answer": "We prototype fast but bake accessible primitives into the design system. Automated linting, keyboard-first prototypes, and early QA with assistive tech users keep velocity without regressions.",
+      "followUp": "When have you argued against shipping due to accessibility debt?"
+    },
+    {
+      "question": "Compare mixed-method research with purely quantitative dashboards.",
+      "focus": "Research",
+      "difficulty": "Intermediate",
+      "answer": "Mixed methods pair why (interviews, diary studies) with what (analytics, funnel drop-offs). Dashboards surface anomalies, but only qualitative work explains motivations. Mature teams flow between them continuously.",
+      "followUp": "Give an instance where data contradicted interviews and how you resolved it."
+    },
+    {
+      "question": "Explain how you design for trust in fintech or health products.",
+      "focus": "Interaction Design",
+      "difficulty": "Advanced",
+      "answer": "Trust emerges from predictable flows, explicit consent, contextual education, and visual calm. I pair microcopy with progressive disclosure so users never feel surprised by data usage.",
+      "followUp": "What visual signals reinforce trust without overwhelming the UI?"
+    },
+    {
+      "question": "How do you hand off work to engineering teams across time zones?",
+      "focus": "Collaboration",
+      "difficulty": "Intermediate",
+      "answer": "Provide annotated specs, interactive prototypes, and async Loom walkthroughs. Establish office-hours overlap for critiques and keep a shared backlog of UX debt for incremental pickup.",
+      "followUp": "What do you do when QA uncovers UX bugs post-handoff?"
+    }
+  ]
+}

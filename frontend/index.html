@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAVIQ | Calm Career Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="app-header">
+            <div class="brand">
+                <span class="logo">NAVIQ</span>
+                <span class="brand-tagline">Leads to your GOALS</span>
+            </div>
+            <nav class="desktop-nav" aria-label="Primary">
+                <button class="nav-link active" data-nav="home" aria-current="page">Home</button>
+                <button class="nav-link" data-nav="roadmap">Roadmap</button>
+                <button class="nav-link" data-nav="study">Study Material</button>
+                <button class="nav-link" data-nav="ai">AI Guide</button>
+                <button class="nav-link" data-nav="insights">Career Insights</button>
+                <button class="nav-link" data-nav="profile">Profile</button>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme mode">
+                <span class="theme-toggle__icon" aria-hidden="true"></span>
+                <span class="theme-toggle__label" id="theme-label">Auto</span>
+            </button>
+        </header>
+
+        <main class="app-main" id="app-main">
+            <section class="screen home active" data-screen="home" aria-labelledby="home-title">
+                <div class="home-hero">
+                    <p class="eyebrow">Calm focus, clear direction</p>
+                    <h1 id="home-title">Navigate your career with clarity, not confusion.</h1>
+                    <p class="lead">Deeply personalized planning, curated study rituals, and an AI guide that keeps you grounded.</p>
+                    <label class="search-field" for="goal-search">
+                        <input id="goal-search" type="text" placeholder="What do you want to become?" autocomplete="off">
+                        <button type="button" class="chip primary" id="search-cta">Search</button>
+                    </label>
+                    <div class="home-card-grid">
+                        <button class="nav-card" data-nav="insights">Explore Careers</button>
+                        <button class="nav-card" data-nav="roadmap">Learning Roadmaps</button>
+                        <button class="nav-card" data-nav="study">Study Resources</button>
+                        <button class="nav-card" data-nav="ai">AI Career Guide</button>
+                    </div>
+                    <button class="ghost-link" data-modal="interview">Launch Interview Studio</button>
+                </div>
+            </section>
+
+            <section class="screen roadmap" data-screen="roadmap" aria-labelledby="roadmap-title">
+                <div class="screen-header">
+                    <div>
+                        <p class="eyebrow">Roadmap</p>
+                        <h2 id="roadmap-title">Vertical timelines that adapt to your pace</h2>
+                    </div>
+                    <p class="muted">Each step captures focus, intent, and resources - use the selector or next / previous controls.</p>
+                </div>
+                <div class="roadmap-shell">
+                    <form id="roadmap-form" class="roadmap-form">
+                        <label>
+                            <span>Goal or discipline</span>
+                            <select id="goal-select" name="goal">
+                                <option value="" disabled selected>Loading goals...</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Duration</span>
+                            <select id="duration-select" name="days">
+                                <option value="30">30 days</option>
+                                <option value="60">60 days</option>
+                                <option value="90">90 days</option>
+                            </select>
+                        </label>
+                        <button type="submit" class="chip primary stretched">Generate Plan</button>
+                    </form>
+                    <div class="roadmap-panel">
+                        <div class="roadmap-meta">
+                            <p class="muted" id="roadmap-overview">Choose a goal to preview your curated breakdown.</p>
+                            <div id="roadmap-meta" class="meta-tags"></div>
+                            <div id="roadmap-resources" class="resource-chips"></div>
+                        </div>
+                        <div class="roadmap-stage">
+                            <div id="roadmap-selector" class="step-selector" role="tablist" aria-label="Roadmap steps"></div>
+                            <article class="step-card" aria-live="polite">
+                                <header>
+                                    <p class="eyebrow tiny">Current focus</p>
+                                    <h3 id="roadmap-step-title">Awaiting first plan</h3>
+                                    <p class="muted" id="roadmap-step-summary">Once generated, each step will outline focus, outcomes, and resources.</p>
+                                </header>
+                                <ul id="roadmap-step-list" class="step-list"></ul>
+                            </article>
+                            <div class="step-controls">
+                                <button type="button" class="chip ghost" id="roadmap-prev" disabled>Previous</button>
+                                <span id="roadmap-indicator" aria-live="polite">Step 0 of 0</span>
+                                <button type="button" class="chip ghost" id="roadmap-next" disabled>Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="screen study" data-screen="study" aria-labelledby="study-title">
+                <div class="screen-header">
+                    <div>
+                        <p class="eyebrow">Study Material</p>
+                        <h2 id="study-title">Fixed split workspace for deeper reading</h2>
+                    </div>
+                    <p class="muted">Tap a topic to load annotated summaries, rituals, and reference links.</p>
+                </div>
+                <div class="study-shell">
+                    <aside class="study-tabs" id="study-tabs" role="tablist" aria-label="Study topics"></aside>
+                    <div class="study-panel" id="study-panel">
+                        <header>
+                            <p class="badge">Topic</p>
+                            <h3 id="study-heading">Select a topic</h3>
+                            <p class="muted" id="study-subhead">Your reading view stays anchored - no scrolling between panes.</p>
+                        </header>
+                        <div id="study-content" class="study-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="screen ai" data-screen="ai" aria-labelledby="ai-title">
+                <div class="screen-header">
+                    <div>
+                        <p class="eyebrow">AI Guide</p>
+                        <h2 id="ai-title">Calm, full-screen chat counsel</h2>
+                    </div>
+                    <p class="muted">Suggested prompt chips keep you moving; the message pane stays within view.</p>
+                </div>
+                <div class="ai-shell">
+                    <div class="prompt-chips" id="prompt-chips"></div>
+                    <div class="chat-body" id="chat-window" aria-live="polite"></div>
+                    <form id="chat-form" class="chat-input">
+                        <input type="text" id="chat-input" placeholder="Ask Naviq anything..." autocomplete="off">
+                        <button type="submit" class="chip primary">Send</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="screen insights" data-screen="insights" aria-labelledby="insights-title">
+                <div class="screen-header">
+                    <div>
+                        <p class="eyebrow">Career Insights</p>
+                        <h2 id="insights-title">Stats and signals at a glance</h2>
+                    </div>
+                    <p class="muted">Switch views to reveal readiness, velocity, or market indicators.</p>
+                </div>
+                <div class="insights-shell">
+                    <div class="insight-tabs" id="insight-tabs" role="tablist" aria-label="Insight filters"></div>
+                    <div class="insight-grid" id="insight-grid"></div>
+                </div>
+            </section>
+
+            <section class="screen profile" data-screen="profile" aria-labelledby="profile-title">
+                <div class="profile-card">
+                    <div class="profile-summary">
+                        <p class="eyebrow">Profile</p>
+                        <h2 id="profile-title">Amelia Jensen</h2>
+                        <p class="muted">Principal Product Manager track · Calm cadence: 12-week focus</p>
+                        <div class="progress-pair">
+                            <div>
+                                <p class="muted tiny">Roadmap flow</p>
+                                <div class="progress-bar"><span style="width: 58%"></span></div>
+                                <strong>58% paced</strong>
+                            </div>
+                            <div>
+                                <p class="muted tiny">Interview decks</p>
+                                <div class="progress-bar coral"><span style="width: 72%"></span></div>
+                                <strong>6 of 8 complete</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-settings">
+                        <h3>Preferences</h3>
+                        <label class="toggle">
+                            <input type="checkbox" checked>
+                            <span>Weekly reflections</span>
+                        </label>
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <span>Mindful reminders</span>
+                        </label>
+                        <button type="button" class="chip ghost" id="theme-system">Follow system theme</button>
+                        <p class="tiny muted">Use the toggle above or reset here to mirror OS settings.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <nav class="mobile-nav" aria-label="Primary mobile">
+            <button class="nav-link active" data-nav="home">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8 7h-2v9h-4v-5H10v5H6v-9H4z"/></svg>
+                </span>
+                <span>Home</span>
+            </button>
+            <button class="nav-link" data-nav="roadmap">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v3H6zM8 9h8v3H8zM6 15h12v6H6z"/></svg>
+                </span>
+                <span>Roadmap</span>
+            </button>
+            <button class="nav-link" data-nav="study">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14l-8-3-8 3z"/></svg>
+                </span>
+                <span>Study</span>
+            </button>
+            <button class="nav-link" data-nav="ai">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v10H5l-1 6z"/></svg>
+                </span>
+                <span>AI</span>
+            </button>
+            <button class="nav-link" data-nav="insights">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V9h3v12zm6 0V3h3v18zm6 0v-8h3v8z"/></svg>
+                </span>
+                <span>Insights</span>
+            </button>
+            <button class="nav-link" data-nav="profile">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a4 4 0 110 8 4 4 0 010-8zm0 10c4 0 7 2 8 4v2H4v-2c1-2 4-4 8-4z"/></svg>
+                </span>
+                <span>Profile</span>
+            </button>
+        </nav>
+
+        <div class="modal" id="interview-modal" aria-hidden="true">
+            <div class="modal__backdrop" data-modal-dismiss></div>
+            <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="interview-title">
+                <header class="modal__header">
+                    <div>
+                        <p class="eyebrow">Interview Studio</p>
+                        <h3 id="interview-title">Practice conversations with context</h3>
+                    </div>
+                    <button class="icon-button" data-modal-dismiss aria-label="Close modal">Close</button>
+                </header>
+                <form id="interview-form" class="modal-form">
+                    <label>
+                        <span>Choose a role</span>
+                        <select id="role-select" name="role">
+                            <option value="" disabled selected>Loading roles...</option>
+                        </select>
+                    </label>
+                    <button type="submit" class="chip primary">Load Interview Set</button>
+                </form>
+                <div id="questions-container" class="modal-results hidden" aria-live="polite">
+                    <div class="results-header">
+                        <p class="muted" id="interview-status">Pick a role to preview curated prompts.</p>
+                    </div>
+                    <ul id="questions-list" class="question-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1379 @@
+{
+    "Python Developer": {
+        "overview": "Master end-to-end Python engineering, from computer science depth to deployment-ready services.",
+        "milestones": [
+            {
+                "title": "Computer Science Foundations",
+                "details": "Refresh data structures, algorithms, and complexity trade-offs using Python for implementation drills.",
+                "outcomes": [
+                    "Explain the runtime costs of lists, dicts, heaps, and graphs",
+                    "Implement recursion-to-iteration refactors without performance loss"
+                ],
+                "resources": [
+                    "MIT OpenCourseWare 6.006",
+                    "Grokking Algorithms"
+                ]
+            },
+            {
+                "title": "Idiomatic Python",
+                "details": "Deep dive into the data model, context managers, and iterator/generator patterns.",
+                "outcomes": [
+                    "Use descriptors, dataclasses, and protocols intentionally",
+                    "Author context managers with proper error handling"
+                ],
+                "resources": [
+                    "Fluent Python",
+                    "Talk Python's Effective Py course"
+                ]
+            },
+            {
+                "title": "Data Structures in Practice",
+                "details": "Build reusable libraries for trees, graphs, and streaming analytics workloads.",
+                "outcomes": [
+                    "Design custom containers with __slots__ and memory profiling",
+                    "Benchmark pure Python vs C-accelerated options"
+                ],
+                "resources": [
+                    "pytest-benchmark docs",
+                    "CPython internals guide"
+                ]
+            },
+            {
+                "title": "Object Modeling and APIs",
+                "details": "Model business domains using clean boundaries, dataclasses, and pydantic style validation.",
+                "outcomes": [
+                    "Translate messy requirements into cohesive class hierarchies",
+                    "Guarantee invariants through validators and type hints"
+                ],
+                "resources": [
+                    "Cosmic Python",
+                    "Typing documentation"
+                ]
+            },
+            {
+                "title": "Testing Excellence",
+                "details": "Level up pytest skills, property tests, and contract tests for services.",
+                "outcomes": [
+                    "Use fixtures and parametrization to shrink duplication",
+                    "Adopt property-based testing for critical algorithms"
+                ],
+                "resources": [
+                    "pytest docs",
+                    "Hypothesis strategies guide"
+                ]
+            },
+            {
+                "title": "Async and Concurrency",
+                "details": "Blend asyncio, multiprocessing, and threading depending on workload types.",
+                "outcomes": [
+                    "Instrument event loops for back-pressure insights",
+                    "Build resilient worker pools with graceful shutdown"
+                ],
+                "resources": [
+                    "Asyncio official tutorial",
+                    "Ray.io patterns"
+                ]
+            },
+            {
+                "title": "Web Framework Mastery",
+                "details": "Construct APIs with Flask, FastAPI, or Django using layered architecture.",
+                "outcomes": [
+                    "Isolate services and repositories for swap-friendly storage",
+                    "Ship OpenAPI docs with automated tests"
+                ],
+                "resources": [
+                    "FastAPI docs",
+                    "Django for APIs"
+                ]
+            },
+            {
+                "title": "Data Access and Persistence",
+                "details": "Work with SQLAlchemy, Redis, and event streams while respecting transactions.",
+                "outcomes": [
+                    "Profile ORM vs raw SQL paths",
+                    "Design idempotent consumers for queues"
+                ],
+                "resources": [
+                    "SQLAlchemy 2.0 tutorial",
+                    "Designing Data-Intensive Applications"
+                ]
+            },
+            {
+                "title": "API Design & Contracts",
+                "details": "Document, version, and secure REST plus background job interfaces.",
+                "outcomes": [
+                    "Version APIs without breaking old consumers",
+                    "Implement RBAC, rate limiting, and observability hooks"
+                ],
+                "resources": [
+                    "API Design Handbook",
+                    "OWASP ASVS"
+                ]
+            },
+            {
+                "title": "Packaging & Tooling",
+                "details": "Publish reusable packages, CLIs, and automation scripts.",
+                "outcomes": [
+                    "Configure pyproject builds and dependency groups",
+                    "Ship CLI utilities with typer/click"
+                ],
+                "resources": [
+                    "Python Packaging User Guide",
+                    "Typer documentation"
+                ]
+            },
+            {
+                "title": "Observability & DevOps",
+                "details": "Instrument metrics, tracing, and logs; set up CI/CD for Python apps.",
+                "outcomes": [
+                    "Export OpenTelemetry signals",
+                    "Harden pipelines with linting, tests, and security scans"
+                ],
+                "resources": [
+                    "OpenTelemetry Python",
+                    "GitHub Actions hardening guide"
+                ]
+            },
+            {
+                "title": "Capstone & Storytelling",
+                "details": "Deliver a production-style service with docs, tests, and deployment instructions.",
+                "outcomes": [
+                    "Summarize trade-offs made in architecture decisions",
+                    "Present metrics that prove readiness"
+                ],
+                "resources": [
+                    "Write the Docs community",
+                    "Observability Case Studies"
+                ]
+            }
+        ],
+        "resources": [
+            "Real Python learning paths",
+            "Effective Python newsletter"
+        ]
+    },
+    "Web Developer": {
+        "overview": "Design delightful, accessible experiences across the full web stack with performance in mind.",
+        "milestones": [
+            {
+                "title": "Modern HTML Semantics",
+                "details": "Revisit semantic tags, document outlines, and ARIA roles for rich applications.",
+                "outcomes": [
+                    "Structure content so screen readers announce context clearly",
+                    "Plan for localization-ready markup"
+                ],
+                "resources": [
+                    "MDN HTML guides",
+                    "WebAIM tutorials"
+                ]
+            },
+            {
+                "title": "CSS Architecture",
+                "details": "Practice fluid layouts, container queries, and design token pipelines.",
+                "outcomes": [
+                    "Ship responsive layouts without breakpoint bloat",
+                    "Leverage logical properties to support RTL"
+                ],
+                "resources": [
+                    "Every Layout",
+                    "Modern CSS Solutions"
+                ]
+            },
+            {
+                "title": "JavaScript Systems",
+                "details": "Strengthen knowledge of modules, async patterns, and browser APIs.",
+                "outcomes": [
+                    "Detect and fix event loop blocking work",
+                    "Use Web Workers and BroadcastChannel intentionally"
+                ],
+                "resources": [
+                    "You Don't Know JS Yet",
+                    "web.dev articles"
+                ]
+            },
+            {
+                "title": "Accessibility in Practice",
+                "details": "Run audits, keyboard testing, and color contrast reviews on representative flows.",
+                "outcomes": [
+                    "Build AXE automated checks into CI",
+                    "Partner with users for manual screen reader testing"
+                ],
+                "resources": [
+                    "Deque University",
+                    "WCAG 2.2 quick reference"
+                ]
+            },
+            {
+                "title": "Design System Thinking",
+                "details": "Create token libraries, documentation sites, and contribution workflows.",
+                "outcomes": [
+                    "Publishes tokens as CSS variables and JSON",
+                    "Author usage guidelines with story-driven examples"
+                ],
+                "resources": [
+                    "Design Systems Handbook",
+                    "Storybook tutorials"
+                ]
+            },
+            {
+                "title": "Frontend Build Tooling",
+                "details": "Tune bundlers, module federation, and asset pipelines for scale.",
+                "outcomes": [
+                    "Measure bundle health with source-map-explorer",
+                    "Adopt code-splitting strategies that match routes"
+                ],
+                "resources": [
+                    "Vite docs",
+                    "Webpack analyze guide"
+                ]
+            },
+            {
+                "title": "Backend Integration",
+                "details": "Consume GraphQL/REST, handle caching, and model error states in UI.",
+                "outcomes": [
+                    "Design resilient retry logic",
+                    "Represent optimistic updates with proper rollback"
+                ],
+                "resources": [
+                    "Apollo GraphQL",
+                    "RESTful Web APIs"
+                ]
+            },
+            {
+                "title": "Performance & Observability",
+                "details": "Instrument Core Web Vitals, profiling, and UX metrics dashboards.",
+                "outcomes": [
+                    "Use PerformanceObserver to stream metrics",
+                    "Budget assets and detect regressions via Lighthouse CI"
+                ],
+                "resources": [
+                    "Chrome DevTools",
+                    "SpeedCurve guides"
+                ]
+            },
+            {
+                "title": "Security & Privacy",
+                "details": "Mitigate XSS, CSRF, clickjacking, and data exposure risks.",
+                "outcomes": [
+                    "Set strict CSP and sandbox headers",
+                    "Design consent UX for analytics and cookies"
+                ],
+                "resources": [
+                    "OWASP Cheat Sheets",
+                    "Mozilla Observatory"
+                ]
+            },
+            {
+                "title": "Testing Strategy",
+                "details": "Balance unit, integration, and visual regression testing.",
+                "outcomes": [
+                    "Automate component tests with Playwright",
+                    "Share golden masters with design for review"
+                ],
+                "resources": [
+                    "Testing Library",
+                    "Playwright docs"
+                ]
+            },
+            {
+                "title": "Deployment Workflows",
+                "details": "Plan blue-green or canary releases and observability for frontends.",
+                "outcomes": [
+                    "Deploy via edge workers/CDN",
+                    "Roll back quickly using feature flags"
+                ],
+                "resources": [
+                    "Netlify and Vercel docs",
+                    "LaunchDarkly playbooks"
+                ]
+            },
+            {
+                "title": "Story-Driven Portfolio",
+                "details": "Document case studies emphasizing user impact and measurable results.",
+                "outcomes": [
+                    "Communicate constraints and trade-offs clearly",
+                    "Show before/after metrics and code snippets"
+                ],
+                "resources": [
+                    "UX Collective writing tips",
+                    "Polypane case studies"
+                ]
+            }
+        ],
+        "resources": [
+            "Frontend Masters roadmap",
+            "Smashing Magazine"
+        ]
+    },
+    "Data Scientist": {
+        "overview": "Blend rigorous analytics with production-minded machine learning practices.",
+        "milestones": [
+            {
+                "title": "Math Refresh",
+                "details": "Reinforce linear algebra, probability, and statistics for model intuition.",
+                "outcomes": [
+                    "Translate proofs into implementable intuition",
+                    "Explain variance, bias, and covariance structures"
+                ],
+                "resources": [
+                    "Khan Academy probability",
+                    "Linear Algebra Done Right"
+                ]
+            },
+            {
+                "title": "Data Acquisition & Cleaning",
+                "details": "Practice ingesting messy datasets, handling missingness, and documenting lineage.",
+                "outcomes": [
+                    "Create reproducible data build tool (dbt) models",
+                    "Version datasets with Delta or LakeFS"
+                ],
+                "resources": [
+                    "dbt learn",
+                    "Great Expectations"
+                ]
+            },
+            {
+                "title": "Exploratory Data Analysis",
+                "details": "Use notebooks, profiling, and visualization to surface hypotheses.",
+                "outcomes": [
+                    "Automate narrative EDA reports",
+                    "Design visual encodings for stakeholders"
+                ],
+                "resources": [
+                    "pandas-profiling",
+                    "Data Viz Project"
+                ]
+            },
+            {
+                "title": "Feature Engineering",
+                "details": "Craft domain features, leakage checks, and encoding strategies.",
+                "outcomes": [
+                    "Codify feature contracts in a feature store",
+                    "Quantify feature importance with SHAP/Permutation"
+                ],
+                "resources": [
+                    "Feast feature store",
+                    "Feature Engineering Made Easy"
+                ]
+            },
+            {
+                "title": "Modeling Toolkit",
+                "details": "Train linear models, tree ensembles, and neural nets with hyperparameter rigor.",
+                "outcomes": [
+                    "Establish baselines before complex approaches",
+                    "Run distributed training experiments"
+                ],
+                "resources": [
+                    "scikit-learn",
+                    "XGBoost cheatsheet"
+                ]
+            },
+            {
+                "title": "Evaluation & Experimentation",
+                "details": "Interpret metrics, confidence intervals, and A/B or bandit designs.",
+                "outcomes": [
+                    "Craft cost-based confusion matrices",
+                    "Plan sequential testing controls"
+                ],
+                "resources": [
+                    "Experimentation platforms blog",
+                    "AB Testing by Kohavi"
+                ]
+            },
+            {
+                "title": "Specialized Topics",
+                "details": "Dive into NLP, computer vision, or recommender systems per interest.",
+                "outcomes": [
+                    "Implement transfer learning workflows",
+                    "Compare embedding strategies for retrieval"
+                ],
+                "resources": [
+                    "Hugging Face course",
+                    "Fast.ai"
+                ]
+            },
+            {
+                "title": "MLOps Foundations",
+                "details": "Integrate MLflow, model registries, and serving stacks.",
+                "outcomes": [
+                    "Track experiments with lineage and metrics",
+                    "Deploy models behind APIs or streaming endpoints"
+                ],
+                "resources": [
+                    "MLflow guides",
+                    "Seldon Core"
+                ]
+            },
+            {
+                "title": "Scaling Data Science",
+                "details": "Use Spark/Dask, optimize storage, and manage pipelines.",
+                "outcomes": [
+                    "Tune distributed jobs for cost and latency",
+                    "Implement orchestrations with Airflow/Prefect"
+                ],
+                "resources": [
+                    "Databricks Academy",
+                    "Prefect University"
+                ]
+            },
+            {
+                "title": "Responsible AI",
+                "details": "Define governance, fairness metrics, and model documentation.",
+                "outcomes": [
+                    "Use datasheets/model cards",
+                    "Monitor drift and bias post-deployment"
+                ],
+                "resources": [
+                    "Partnership on AI",
+                    "Google Model Cards toolkit"
+                ]
+            },
+            {
+                "title": "Productization & Storytelling",
+                "details": "Translate findings into product narratives and dashboards.",
+                "outcomes": [
+                    "Craft executive-ready visuals",
+                    "Connect models to revenue or cost impact"
+                ],
+                "resources": [
+                    "Storytelling with Data",
+                    "Mode Analytics tutorials"
+                ]
+            },
+            {
+                "title": "Portfolio & Thought Leadership",
+                "details": "Publish case studies, notebooks, and reusable templates.",
+                "outcomes": [
+                    "Open-source a toolkit or visualization",
+                    "Give talks or write blog posts summarizing insights"
+                ],
+                "resources": [
+                    "Towards Data Science",
+                    "Kaggle write-ups"
+                ]
+            }
+        ],
+        "resources": [
+            "Made With ML",
+            "DataTalksClub"
+        ]
+    },
+    "DevOps Engineer": {
+        "overview": "Build reliable, secure delivery systems that keep product teams shipping quickly.",
+        "milestones": [
+            {
+                "title": "Linux & Networking Refresh",
+                "details": "Harden fundamentals: shells, permissions, TCP/IP, DNS, proxies.",
+                "outcomes": [
+                    "Diagnose packet-level issues",
+                    "Automate base image hardening"
+                ],
+                "resources": [
+                    "Julia Evans zines",
+                    "Linux Journey"
+                ]
+            },
+            {
+                "title": "Infrastructure as Code",
+                "details": "Author Terraform/Pulumi stacks with modules, policies, and tests.",
+                "outcomes": [
+                    "Implement policy-as-code gates",
+                    "Publish reusable modules and registries"
+                ],
+                "resources": [
+                    "Terraform Up and Running",
+                    "OPA tutorials"
+                ]
+            },
+            {
+                "title": "Containerization",
+                "details": "Optimize Dockerfiles, layering, and supply-chain scanning.",
+                "outcomes": [
+                    "Adopt distroless/minimal images",
+                    "Integrate provenance attestations"
+                ],
+                "resources": [
+                    "Docker Captain guides",
+                    "SLSA.dev"
+                ]
+            },
+            {
+                "title": "CI/CD Design",
+                "details": "Construct pipelines with templates, caching, and compliance gates.",
+                "outcomes": [
+                    "Measure pipeline lead time and flake rates",
+                    "Implement progressive delivery strategies"
+                ],
+                "resources": [
+                    "Accelerate book",
+                    "GitHub Actions patterns"
+                ]
+            },
+            {
+                "title": "Observability",
+                "details": "Standardize logs, metrics, traces, and alert tuning.",
+                "outcomes": [
+                    "Roll out OpenTelemetry collectors",
+                    "Define SLOs and error budgets"
+                ],
+                "resources": [
+                    "Site Reliability Workbook",
+                    "Honeycomb guides"
+                ]
+            },
+            {
+                "title": "Security & Compliance",
+                "details": "Embed threat modeling, secrets management, and compliance controls.",
+                "outcomes": [
+                    "Automate dependency scanning",
+                    "Rotate credentials with zero downtime"
+                ],
+                "resources": [
+                    "OWASP DevSecOps",
+                    "HashiCorp Vault"
+                ]
+            },
+            {
+                "title": "SRE Practices",
+                "details": "Plan incident response, chaos testing, and capacity management.",
+                "outcomes": [
+                    "Facilitate blameless postmortems",
+                    "Run game days with clear hypotheses"
+                ],
+                "resources": [
+                    "Google SRE book",
+                    "Gremlin tutorials"
+                ]
+            },
+            {
+                "title": "Cloud Automation",
+                "details": "Script AWS/Azure/GCP APIs, image pipelines, and drift detection.",
+                "outcomes": [
+                    "Adopt event-driven automation",
+                    "Continuously scan for configuration drift"
+                ],
+                "resources": [
+                    "AWS Well-Architected",
+                    "Azure Architecture Center"
+                ]
+            },
+            {
+                "title": "Resilience Engineering",
+                "details": "Model failure domains, circuit breakers, and regional evacuation plans.",
+                "outcomes": [
+                    "Quantify blast radius",
+                    "Build tooling for rapid failover"
+                ],
+                "resources": [
+                    "Principles of Chaos Engineering",
+                    "Principled SRE"
+                ]
+            },
+            {
+                "title": "Cost & Capacity Management",
+                "details": "Implement FinOps dashboards and capacity planning models.",
+                "outcomes": [
+                    "Set automated budgets and anomaly alerts",
+                    "Forecast resource needs seasonally"
+                ],
+                "resources": [
+                    "FinOps Foundation",
+                    "CloudZero blogs"
+                ]
+            },
+            {
+                "title": "Compliance & Audit Readiness",
+                "details": "Map controls to SOC2/GDPR and automate evidence collection.",
+                "outcomes": [
+                    "Generate compliance reports on demand",
+                    "Embed guardrails for regulated workloads"
+                ],
+                "resources": [
+                    "Secureframe guides",
+                    "Cloud security alliance"
+                ]
+            },
+            {
+                "title": "Platform Leadership",
+                "details": "Teach enablement best practices and run internal consulting sessions.",
+                "outcomes": [
+                    "Define product KPIs for platform teams",
+                    "Run office hours and playbooks"
+                ],
+                "resources": [
+                    "Team Topologies",
+                    "Platform Engineering community"
+                ]
+            }
+        ],
+        "resources": [
+            "KubeCon talks",
+            "DevOps.com"
+        ]
+    },
+    "Cybersecurity Analyst": {
+        "overview": "Develop a defender mindset spanning threat intel, detection, and governance.",
+        "milestones": [
+            {
+                "title": "Threat Landscape",
+                "details": "Study current adversary tactics, MITRE ATT&CK, and industry reports.",
+                "outcomes": [
+                    "Map threats to controls",
+                    "Prioritize risks by likelihood and impact"
+                ],
+                "resources": [
+                    "Verizon DBIR",
+                    "ATT&CK Navigator"
+                ]
+            },
+            {
+                "title": "Networking & Protocols",
+                "details": "Analyze packets, TLS handshakes, and common exploit vectors.",
+                "outcomes": [
+                    "Decode PCAPs to spot anomalies",
+                    "Simulate attacks in a lab"
+                ],
+                "resources": [
+                    "Wireshark tutorials",
+                    "Practical Packet Analysis"
+                ]
+            },
+            {
+                "title": "Identity & Access Management",
+                "details": "Evaluate IAM policies, federation, and zero trust fundamentals.",
+                "outcomes": [
+                    "Detect privilege escalation attempts",
+                    "Design least-privilege roles"
+                ],
+                "resources": [
+                    "NIST SP 800-63",
+                    "Okta Zero Trust guides"
+                ]
+            },
+            {
+                "title": "Detection Engineering",
+                "details": "Write detections in SIEM/EDR platforms with high signal-to-noise.",
+                "outcomes": [
+                    "Measure detection coverage",
+                    "Tune alert thresholds with analysts"
+                ],
+                "resources": [
+                    "Sigma HQ",
+                    "Splunk Security Essentials"
+                ]
+            },
+            {
+                "title": "Incident Response",
+                "details": "Craft runbooks, evidence handling, and communication protocols.",
+                "outcomes": [
+                    "Lead tabletop exercises",
+                    "Coordinate with legal and PR seamlessly"
+                ],
+                "resources": [
+                    "SANS blue team",
+                    "NIST SP 800-61"
+                ]
+            },
+            {
+                "title": "Cloud Security",
+                "details": "Assess AWS/Azure/GCP security posture and native tooling.",
+                "outcomes": [
+                    "Automate misconfiguration checks",
+                    "Implement workload isolation"
+                ],
+                "resources": [
+                    "AWS Security Hub",
+                    "Azure Security Benchmark"
+                ]
+            },
+            {
+                "title": "Application Security",
+                "details": "Review code, run DAST/SAST, and embed secure SDLC workflows.",
+                "outcomes": [
+                    "Prioritize vulnerabilities based on exploitability",
+                    "Coach engineers on secure patterns"
+                ],
+                "resources": [
+                    "OWASP Top 10",
+                    "GitHub code scanning"
+                ]
+            },
+            {
+                "title": "Governance, Risk & Compliance",
+                "details": "Map controls to frameworks like SOC2, ISO, HIPAA.",
+                "outcomes": [
+                    "Build risk registers",
+                    "Automate evidence collection"
+                ],
+                "resources": [
+                    "NIST CSF",
+                    "Secure Controls Framework"
+                ]
+            },
+            {
+                "title": "Security Automation",
+                "details": "Leverage SOAR platforms, scripting, and APIs to scale response.",
+                "outcomes": [
+                    "Create playbooks for common incidents",
+                    "Measure MTTR improvements"
+                ],
+                "resources": [
+                    "Cortex XSOAR",
+                    "Splunk SOAR labs"
+                ]
+            },
+            {
+                "title": "Adversary Simulation",
+                "details": "Run purple team engagements and validate detections.",
+                "outcomes": [
+                    "Coordinate red vs blue learnings",
+                    "Document coverage gaps"
+                ],
+                "resources": [
+                    "Atomic Red Team",
+                    "MITRE D3FEND"
+                ]
+            },
+            {
+                "title": "Reporting & Storytelling",
+                "details": "Transform technical findings into executive-ready reports.",
+                "outcomes": [
+                    "Surface trends and business impact",
+                    "Drive prioritization through narratives"
+                ],
+                "resources": [
+                    "SANS reporting templates",
+                    "Pyramid Principle"
+                ]
+            },
+            {
+                "title": "Continuous Learning",
+                "details": "Set up labs, capture-the-flag practice, and community engagement.",
+                "outcomes": [
+                    "Track certifications and learning goals",
+                    "Stay current via feeds and ISACs"
+                ],
+                "resources": [
+                    "TryHackMe",
+                    "Black Hills Information Security"
+                ]
+            }
+        ],
+        "resources": [
+            "SANS Blue Team",
+            "Cyber Wire daily brief"
+        ]
+    },
+    "Mobile Developer": {
+        "overview": "Ship polished native experiences with resilient data layers and platform integrations.",
+        "milestones": [
+            {
+                "title": "Platform Foundations",
+                "details": "Review Swift/Kotlin language updates, project structure, and tooling.",
+                "outcomes": [
+                    "Adopt modern concurrency features",
+                    "Set up linters and formatters"
+                ],
+                "resources": [
+                    "Swift Evolution",
+                    "Kotlinlang tutorials"
+                ]
+            },
+            {
+                "title": "Architecture Patterns",
+                "details": "Compare MVVM, MVI, and Clean Architecture for long-lived apps.",
+                "outcomes": [
+                    "Separate UI, domain, and data layers",
+                    "Write dependency injection setups"
+                ],
+                "resources": [
+                    "Point-Free",
+                    "Android Developers architecture"
+                ]
+            },
+            {
+                "title": "Interface Craft",
+                "details": "Design adaptive layouts, motion, and accessibility on mobile.",
+                "outcomes": [
+                    "Use dynamic type and dark mode",
+                    "Prototype micro-interactions"
+                ],
+                "resources": [
+                    "Human Interface Guidelines",
+                    "Material Design"
+                ]
+            },
+            {
+                "title": "State Management",
+                "details": "Coordinate state across views, background work, and system restarts.",
+                "outcomes": [
+                    "Implement unidirectional data flow",
+                    "Persist state securely"
+                ],
+                "resources": [
+                    "ReduxKit patterns",
+                    "Jetpack Compose state"
+                ]
+            },
+            {
+                "title": "Data & Sync",
+                "details": "Use local stores, sync engines, and GraphQL/REST clients.",
+                "outcomes": [
+                    "Handle conflicts and retries",
+                    "Secure local caches"
+                ],
+                "resources": [
+                    "Realm Academy",
+                    "Apollo mobile"
+                ]
+            },
+            {
+                "title": "Performance Tooling",
+                "details": "Profile rendering, memory, and battery consumption.",
+                "outcomes": [
+                    "Interpret Instruments or Android Profiler",
+                    "Budget for smooth 60fps animations"
+                ],
+                "resources": [
+                    "WWDC performance sessions",
+                    "Android Performance Patterns"
+                ]
+            },
+            {
+                "title": "Device Capabilities",
+                "details": "Integrate sensors, camera, notifications, and background tasks responsibly.",
+                "outcomes": [
+                    "Guard privacy permissions",
+                    "Design fallback flows when hardware unavailable"
+                ],
+                "resources": [
+                    "Apple Developer documentation",
+                    "Android Jetpack guides"
+                ]
+            },
+            {
+                "title": "Quality & Testing",
+                "details": "Automate unit, UI, and snapshot tests with mocks and simulators.",
+                "outcomes": [
+                    "Adopt test orchestration on CI",
+                    "Measure flake rates"
+                ],
+                "resources": [
+                    "XCTest and XCTestPlan",
+                    "Firebase Test Lab"
+                ]
+            },
+            {
+                "title": "Security & Privacy",
+                "details": "Implement secure storage, attestation, and tamper detection.",
+                "outcomes": [
+                    "Use Keychain/Keystore APIs",
+                    "Detect rooted or jailbroken devices"
+                ],
+                "resources": [
+                    "OWASP MASVS",
+                    "NowSecure labs"
+                ]
+            },
+            {
+                "title": "Release Engineering",
+                "details": "Plan beta testing, phased rollouts, and telemetry.",
+                "outcomes": [
+                    "Automate build pipelines",
+                    "Use feature flags for staged rollout"
+                ],
+                "resources": [
+                    "Fastlane",
+                    "Google Play Console"
+                ]
+            },
+            {
+                "title": "Analytics & Growth",
+                "details": "Instrument funnels, retention cohorts, and experiment frameworks.",
+                "outcomes": [
+                    "Conform to privacy regulations",
+                    "A/B test onboarding or paywalls"
+                ],
+                "resources": [
+                    "Amplitude",
+                    "Mixpanel mobile"
+                ]
+            },
+            {
+                "title": "Polish & Storytelling",
+                "details": "Package learnings into demos, videos, and technical write-ups.",
+                "outcomes": [
+                    "Showcase design-to-implementation alignment",
+                    "Highlight metrics improvements"
+                ],
+                "resources": [
+                    "Dribbble case studies",
+                    "Sketch Notebook"
+                ]
+            }
+        ],
+        "resources": [
+            "WWDC on-demand",
+            "Android Dev Summit"
+        ]
+    },
+    "Cloud Architect": {
+        "overview": "Design resilient, cost-aware cloud platforms that evolve with business needs.",
+        "milestones": [
+            {
+                "title": "Cloud Foundations",
+                "details": "Review shared responsibility, service models, and reference architectures.",
+                "outcomes": [
+                    "Explain trade-offs between IaaS, PaaS, SaaS",
+                    "Map workloads to appropriate services"
+                ],
+                "resources": [
+                    "AWS Certified Solutions Architect",
+                    "Azure Fundamentals"
+                ]
+            },
+            {
+                "title": "Networking Strategy",
+                "details": "Design VPC/VNet layouts, connectivity, and traffic inspection.",
+                "outcomes": [
+                    "Plan hybrid connectivity",
+                    "Implement zero-trust segmentation"
+                ],
+                "resources": [
+                    "AWS Networking whitepapers",
+                    "GCP Cloud Armor"
+                ]
+            },
+            {
+                "title": "Compute & Orchestration",
+                "details": "Compare containers, serverless, and managed runtimes.",
+                "outcomes": [
+                    "Match workloads to orchestration tiers",
+                    "Plan autoscaling policies"
+                ],
+                "resources": [
+                    "Kubernetes patterns",
+                    "Serverless Framework"
+                ]
+            },
+            {
+                "title": "Data & Storage",
+                "details": "Architect storage tiers, databases, and data lifecycle policies.",
+                "outcomes": [
+                    "Balance performance and durability",
+                    "Implement data residency rules"
+                ],
+                "resources": [
+                    "AWS Well-Architected data pillar",
+                    "Snowflake best practices"
+                ]
+            },
+            {
+                "title": "Security Architecture",
+                "details": "Embed identity, encryption, and monitoring from the start.",
+                "outcomes": [
+                    "Enforce infrastructure guardrails",
+                    "Design incident response hooks"
+                ],
+                "resources": [
+                    "CIS Benchmarks",
+                    "AWS Security Reference"
+                ]
+            },
+            {
+                "title": "Automation & IaC",
+                "details": "Scale infrastructure with pipelines, policy checks, and drift control.",
+                "outcomes": [
+                    "Automate golden images",
+                    "Continuously verify compliance"
+                ],
+                "resources": [
+                    "Terraform Cloud",
+                    "AWS CDK"
+                ]
+            },
+            {
+                "title": "Observability & Operations",
+                "details": "Standardize logging, tracing, and runbooks across services.",
+                "outcomes": [
+                    "Implement cross-account monitoring",
+                    "Design operations handbooks"
+                ],
+                "resources": [
+                    "Datadog architecture",
+                    "PagerDuty guides"
+                ]
+            },
+            {
+                "title": "Resilience Engineering",
+                "details": "Model failure modes, disaster recovery, and chaos experiments.",
+                "outcomes": [
+                    "Set RTO/RPO per service tier",
+                    "Automate region evacuations"
+                ],
+                "resources": [
+                    "AWS Resilience Hub",
+                    "Azure Chaos Studio"
+                ]
+            },
+            {
+                "title": "FinOps",
+                "details": "Track spend, allocate costs, and influence behavior through insights.",
+                "outcomes": [
+                    "Build cost dashboards",
+                    "Negotiate savings plans or reservations"
+                ],
+                "resources": [
+                    "FinOps Foundation",
+                    "CloudHealth"
+                ]
+            },
+            {
+                "title": "Governance & Compliance",
+                "details": "Define policies, tagging standards, and lifecycle management.",
+                "outcomes": [
+                    "Automate policy enforcement",
+                    "Provide audit-ready evidence"
+                ],
+                "resources": [
+                    "AWS Control Tower",
+                    "Azure Policy"
+                ]
+            },
+            {
+                "title": "Hybrid & Edge",
+                "details": "Plan for edge computing, on-prem integration, and data gravity.",
+                "outcomes": [
+                    "Select hybrid services (Anthos, Azure Arc)",
+                    "Manage latency-sensitive workloads"
+                ],
+                "resources": [
+                    "Azure Arc",
+                    "AWS Outposts"
+                ]
+            },
+            {
+                "title": "Innovation & Enablement",
+                "details": "Coach teams, run architecture reviews, and document patterns.",
+                "outcomes": [
+                    "Maintain a pattern library",
+                    "Facilitate design reviews"
+                ],
+                "resources": [
+                    "AWS Architecture Blog",
+                    "Thoughtworks Radar"
+                ]
+            }
+        ],
+        "resources": [
+            "Principles of Cloud Design",
+            "InfoQ Cloud"
+        ]
+    },
+    "Product Manager": {
+        "overview": "Guide cross-functional teams from discovery to delivery with clear strategy.",
+        "milestones": [
+            {
+                "title": "Market & Competitive Research",
+                "details": "Assess market size, trends, and competitor positioning.",
+                "outcomes": [
+                    "Summarize key differentiators",
+                    "Spot unmet customer jobs-to-be-done"
+                ],
+                "resources": [
+                    "Strategyzer",
+                    "CB Insights"
+                ]
+            },
+            {
+                "title": "Customer Discovery",
+                "details": "Run interviews, surveys, and diary studies for empathy.",
+                "outcomes": [
+                    "Codify personas and journeys",
+                    "Separate signal from noise"
+                ],
+                "resources": [
+                    "The Mom Test",
+                    "dscout"
+                ]
+            },
+            {
+                "title": "Prioritization Frameworks",
+                "details": "Apply RICE, Weighted Shortest Job First, and narrative roadmaps.",
+                "outcomes": [
+                    "Facilitate prioritization workshops",
+                    "Tie priorities to company bets"
+                ],
+                "resources": [
+                    "Now, Next, Later templates",
+                    "ProdPad"
+                ]
+            },
+            {
+                "title": "Stakeholder Alignment",
+                "details": "Communicate effectively with execs, sales, design, and engineering.",
+                "outcomes": [
+                    "Create crisp status narratives",
+                    "Negotiate trade-offs empathetically"
+                ],
+                "resources": [
+                    "Crucial Conversations",
+                    "Figma product briefs"
+                ]
+            },
+            {
+                "title": "Metrics & Instrumentation",
+                "details": "Define north star metrics, guardrails, and analysis cadences.",
+                "outcomes": [
+                    "Build metric trees",
+                    "Differentiate leading and lagging indicators"
+                ],
+                "resources": [
+                    "Reforge Analytics",
+                    "Amplitude Academy"
+                ]
+            },
+            {
+                "title": "Experimentation & Validation",
+                "details": "Use prototyping, fake doors, and structured experiments.",
+                "outcomes": [
+                    "Design tests with clear success criteria",
+                    "Incorporate learning loops"
+                ],
+                "resources": [
+                    "Testing Business Ideas",
+                    "Optimizely"
+                ]
+            },
+            {
+                "title": "Roadmap Storytelling",
+                "details": "Craft narratives that link vision to initiatives and outcomes.",
+                "outcomes": [
+                    "Pitch strategy succinctly",
+                    "Update stakeholders asynchronously"
+                ],
+                "resources": [
+                    "Product Narrative templates",
+                    "Lenny's Newsletter"
+                ]
+            },
+            {
+                "title": "Delivery Excellence",
+                "details": "Partner with engineering to manage scope, risks, and quality.",
+                "outcomes": [
+                    "Run effective sprint rituals",
+                    "Spot delivery anti-patterns early"
+                ],
+                "resources": [
+                    "Shape Up",
+                    "Atlassian playbook"
+                ]
+            },
+            {
+                "title": "Go-to-Market Planning",
+                "details": "Coordinate launches, packaging, and customer education.",
+                "outcomes": [
+                    "Build launch checklists",
+                    "Equip enablement teams"
+                ],
+                "resources": [
+                    "Launch Notes",
+                    "Product Marketing Alliance"
+                ]
+            },
+            {
+                "title": "Scaling Product Operations",
+                "details": "Implement tooling, rituals, and knowledge bases for growth.",
+                "outcomes": [
+                    "Automate intake and feedback loops",
+                    "Measure product ops ROI"
+                ],
+                "resources": [
+                    "Productboard",
+                    "Notion templates"
+                ]
+            },
+            {
+                "title": "Leadership & Coaching",
+                "details": "Mentor PMs, nurture culture, and handle tough conversations.",
+                "outcomes": [
+                    "Create growth plans",
+                    "Model feedback loops"
+                ],
+                "resources": [
+                    "Inspired by Marty Cagan",
+                    "Radical Candor"
+                ]
+            },
+            {
+                "title": "Portfolio & Thought Leadership",
+                "details": "Publish case studies and speak about outcomes achieved.",
+                "outcomes": [
+                    "Show measurable impact",
+                    "Tell customer-centric stories"
+                ],
+                "resources": [
+                    "Product-Led Summit talks",
+                    "Product School blog"
+                ]
+            }
+        ],
+        "resources": [
+            "Mind the Product",
+            "Reforge Essays"
+        ]
+    },
+    "UX Designer": {
+        "overview": "Elevate research, interaction, and collaboration skills for human-centered products.",
+        "milestones": [
+            {
+                "title": "Research Foundations",
+                "details": "Plan primary/secondary research mixes and recruiting strategies.",
+                "outcomes": [
+                    "Write feasible research plans",
+                    "Synthesize findings into insights"
+                ],
+                "resources": [
+                    "NN/g courses",
+                    "Research Ops Community"
+                ]
+            },
+            {
+                "title": "Information Architecture",
+                "details": "Map navigation, taxonomy, and content strategy.",
+                "outcomes": [
+                    "Run card sorts and tree tests",
+                    "Document IA artifacts"
+                ],
+                "resources": [
+                    "Donna Spencer's IA book",
+                    "Optimal Workshop"
+                ]
+            },
+            {
+                "title": "Interaction Design",
+                "details": "Craft flows, states, and error handling that feel intuitive.",
+                "outcomes": [
+                    "Prototype multi-step journeys",
+                    "Apply behavioral heuristics"
+                ],
+                "resources": [
+                    "About Face",
+                    "Laws of UX"
+                ]
+            },
+            {
+                "title": "Visual Systems",
+                "details": "Build coherent typography, color, and iconography systems.",
+                "outcomes": [
+                    "Create responsive grids",
+                    "Translate tokens into dev-ready specs"
+                ],
+                "resources": [
+                    "Refactoring UI",
+                    "Contrast tools"
+                ]
+            },
+            {
+                "title": "Accessibility Mastery",
+                "details": "Embed inclusive design and assistive tech testing.",
+                "outcomes": [
+                    "Run manual audits",
+                    "Advocate for inclusive personas"
+                ],
+                "resources": [
+                    "Inclusive Components",
+                    "Stark plugin"
+                ]
+            },
+            {
+                "title": "Rapid Prototyping",
+                "details": "Use Figma, Framer, or ProtoPie for realistic demos.",
+                "outcomes": [
+                    "Create interactive prototypes",
+                    "Hand off redlines efficiently"
+                ],
+                "resources": [
+                    "Figma Academy",
+                    "Framer tutorials"
+                ]
+            },
+            {
+                "title": "Design Systems Collaboration",
+                "details": "Contribute components, documentation, and governance.",
+                "outcomes": [
+                    "Run design critiques",
+                    "Publish usage guidance"
+                ],
+                "resources": [
+                    "Design Systems Slack",
+                    "Zeroheight"
+                ]
+            },
+            {
+                "title": "Data-Informed Design",
+                "details": "Pair qualitative insights with analytics and experimentation.",
+                "outcomes": [
+                    "Interpret product metrics",
+                    "Design tests to validate hypotheses"
+                ],
+                "resources": [
+                    "Amplitude for Designers",
+                    "Mixpanel notebooks"
+                ]
+            },
+            {
+                "title": "Cross-Functional Collaboration",
+                "details": "Partner with PM and engineering to scope and deliver.",
+                "outcomes": [
+                    "Lead working sessions",
+                    "Document trade-offs transparently"
+                ],
+                "resources": [
+                    "Atlassian Playbook",
+                    "Basecamp Shape Up"
+                ]
+            },
+            {
+                "title": "Testing & Validation",
+                "details": "Facilitate usability tests, heuristic reviews, and accessibility checks.",
+                "outcomes": [
+                    "Run moderated and unmoderated tests",
+                    "Prioritize findings"
+                ],
+                "resources": [
+                    "Lookback",
+                    "UserTesting templates"
+                ]
+            },
+            {
+                "title": "Facilitation & Workshops",
+                "details": "Lead ideation, prioritization, and design sprints.",
+                "outcomes": [
+                    "Plan agendas",
+                    "Capture decisions and action items"
+                ],
+                "resources": [
+                    "Sprint by GV",
+                    "Mural templates"
+                ]
+            },
+            {
+                "title": "Portfolio & Advocacy",
+                "details": "Tell concise stories highlighting impact and craftsmanship.",
+                "outcomes": [
+                    "Document case studies",
+                    "Present to stakeholders confidently"
+                ],
+                "resources": [
+                    "UX Collective",
+                    "ADPList mentorship"
+                ]
+            }
+        ],
+        "resources": [
+            "Interaction Design Foundation",
+            "DesignBetter.co"
+        ]
+    }
+}
