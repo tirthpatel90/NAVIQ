@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # NAVIQ — Smart Career Preparation Platform
 
 Naviq is a full-stack web application that helps technologists, designers, and product leaders rehearse realistic interviews and generate detailed 30/60/90-day learning roadmaps.
