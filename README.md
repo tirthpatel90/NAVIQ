@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# Naviq — Smart Career Preparation Platform
+# NAVIQ — Smart Career Preparation Platform
 
 Naviq is a full-stack web application that helps technologists, designers, and product leaders rehearse realistic interviews and generate detailed 30/60/90-day learning roadmaps.
 
@@ -82,5 +82,4 @@ This will containerize the backend service. The frontend can still be run by ope
   ```
 - The backend will be accessible at `http://localhost:5000`.
 =======
-# NAVIQ
->>>>>>> f7f1d8c4ea4d765cc938dc754a6588af846bc7e6
+
