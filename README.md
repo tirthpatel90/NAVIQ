@@ -1,53 +1,175 @@
 
-# NAVIQ — Smart Career Preparation Platform
+# NAVIQ - Navigate Your Career with Clarity
 
-Naviq is a full-stack web application that helps technologists, designers, and product leaders rehearse realistic interviews and generate detailed 30/60/90-day learning roadmaps.
+A stunning, modern career navigation platform with SQLite database, React frontend with 3D effects, and AI-powered guidance.
 
-## Tech Stack
+![NAVIQ](https://img.shields.io/badge/NAVIQ-Career%20Intelligence-7f9a7d?style=for-the-badge)
 
-- **Frontend**: HTML, CSS, Vanilla JavaScript
-- **Backend**: Python (Flask)
-- **Data Storage**: JSON files
+## ✨ Features
 
-## Project Structure
+- **🗺️ Learning Roadmaps** - Personalized step-by-step career paths
+- **📚 Study Resources** - Curated learning materials organized by topic
+- **💡 Interview Prep** - Real-world questions with detailed answers
+- **📊 Career Insights** - Data-driven analytics and progress tracking
+- **🤖 AI Career Guide** - Intelligent assistant for career guidance
+- **🎨 Stunning UI** - 3D effects, 2D canvas animations, glassmorphism
+
+## 🛠️ Tech Stack
+
+### Backend
+- **Python 3.8+** with Flask
+- **SQLite** database (easily manage data in VS Code)
+- **Flask-CORS** for cross-origin support
+
+### Frontend
+- **React 18** with Vite
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **React Three Fiber** for 3D graphics
+- **Canvas API** for 2D animations
+
+## 🚀 Quick Start
+
+### Option 1: Run Everything
+```bash
+chmod +x start.sh
+./start.sh
+```
+
+### Option 2: Run Separately
+
+**Backend:**
+```bash
+cd backend
+pip install -r requirements.txt
+python database/seed_data.py  # Initialize database with sample data
+python app.py
+```
+
+**Frontend:**
+```bash
+cd frontend-react
+npm install
+npm run dev
+```
+
+## 📂 Project Structure
 
 ```
-smart-career-platform/
-│
-├── frontend/
-│   ├── index.html
-│   ├── style.css
-│   └── app.js
-│
+NAVIQ/
 ├── backend/
-│   ├── app.py
-│   ├── services/
-│   │   ├── interview_service.py
-│   │   └── roadmap_service.py
-│   ├── repository/
-│   │   └── file_repo.py
-│   └── data/
-│       ├── interview_questions.json
-│       └── roadmap_topics.json
-│
-├── docker/
-│   └── Dockerfile
-│
-└── README.md
+│   ├── app.py                 # Flask API server
+│   ├── database/
+│   │   ├── db_setup.py        # Database schema
+│   │   ├── seed_data.py       # Sample data seeder
+│   │   └── naviq.db           # SQLite database (auto-created)
+│   └── repository/
+│       └── db_repo.py         # Database operations
+├── frontend-react/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── 3d/            # Three.js 3D components
+│   │   │   ├── canvas/        # 2D canvas animations
+│   │   │   └── Layout.jsx     # Main layout
+│   │   ├── pages/             # Page components
+│   │   ├── services/          # API services
+│   │   └── styles/            # CSS files
+│   └── package.json
+├── frontend/                  # Legacy frontend (HTML/CSS/JS)
+└── start.sh                   # Quick start script
 ```
 
-## Features
+## 🗄️ Database Management
 
-1. **Interview Studio** — Curated multi-discipline interview decks (engineering, security, product, UX) that include intent, difficulty, and follow-up prompts.
-2. **Roadmap Generator** — A milestone-rich planner that outputs weekly action plans, outcomes, and resources for 30 / 60 / 90 day schedules.
-3. **Repository + Services Architecture** — Clean separation so JSON storage can later be swapped for cloud databases without touching business logic.
+The SQLite database (`backend/database/naviq.db`) can be easily managed in VS Code:
 
-## How to Run Locally
+1. Install the **SQLite Viewer** extension
+2. Open `naviq.db` to view/edit data
+3. Use the API endpoints to add/remove data programmatically
 
-### 1. Backend Setup
+### API Endpoints
 
-- (Optional) Create and activate a virtual environment.
-- Install the required Python packages using the provided requirements file:
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/roles` | Get all roles |
+| POST | `/api/roles` | Create a new role |
+| PUT | `/api/roles/:id` | Update a role |
+| DELETE | `/api/roles/:id` | Delete a role |
+| GET | `/api/interview?role=X` | Get interview questions |
+| POST | `/api/interview` | Add a question |
+| PUT | `/api/interview/:id` | Update a question |
+| DELETE | `/api/interview/:id` | Delete a question |
+| GET | `/api/roadmap?goal=X&days=30` | Get learning roadmap |
+| GET | `/api/roadmap/goals` | Get all available goals |
+| GET | `/api/study` | Get study topics |
+| POST | `/api/study` | Create study topic |
+| GET | `/api/insights` | Get career insights |
+| POST | `/api/insights` | Create insight |
+| PUT | `/api/insights/:id` | Update insight |
+| DELETE | `/api/insights/:id` | Delete insight |
+
+## 🎨 Design Features
+
+### 3D Effects
+- Floating orbs with distortion materials
+- Animated particle fields
+- Interactive 3D scene on home page
+
+### 2D Canvas Animations
+- Particle network with mouse interaction
+- Gradient blob animations
+- Wave animations
+
+### UI Components
+- Glassmorphism cards
+- Smooth scroll animations
+- Dark/Light mode toggle
+- Responsive design for all screens
+
+## 🔧 Configuration
+
+### Backend Port
+Edit `backend/app.py`:
+```python
+app.run(debug=True, port=5000)
+```
+
+### Frontend API URL
+Edit `frontend-react/src/services/api.js`:
+```javascript
+const API_BASE_URL = 'http://localhost:5000'
+```
+
+## 📝 Adding Data via VS Code
+
+You can directly edit the SQLite database:
+
+1. Install "SQLite Viewer" or "SQLite" extension in VS Code
+2. Navigate to `backend/database/naviq.db`
+3. Double-click to open and view/edit tables
+4. Changes are reflected immediately in the app
+
+Or use the REST API with tools like Postman or curl:
+
+```bash
+# Add a new role
+curl -X POST http://localhost:5000/api/roles \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Full Stack Developer", "description": "Build complete applications", "icon": "🚀", "color": "#3B82F6"}'
+
+# Add an interview question
+curl -X POST http://localhost:5000/api/interview \
+  -H "Content-Type: application/json" \
+  -d '{"role_id": 1, "question": "What is your experience with...", "difficulty": "Intermediate", "focus": "Experience"}'
+```
+
+## 📄 License
+
+MIT License - feel free to use this project for learning and personal projects!
+
+---
+
+Made with ❤️ for career navigators everywhere
   ```bash
   pip install -r backend/requirements.txt
   ```

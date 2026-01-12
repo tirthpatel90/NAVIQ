@@ -7,9 +7,13 @@ import os
 import sys
 
 # Fix imports for running directly
-current_dir = os.path.dirname(os.path.abspath(__file__))
-if current_dir not in sys.path:
-    sys.path.insert(0, current_dir)
+if __package__ is None or __package__ == "":
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    parent_dir = os.path.dirname(current_dir)
+    if parent_dir not in sys.path:
+        sys.path.insert(0, parent_dir)
+    if current_dir not in sys.path:
+        sys.path.insert(0, current_dir)
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -102,6 +106,7 @@ def get_interview_questions():
     
     questions = db_repository.get_questions_for_role(role)
     if not questions:
+        # Return empty array if no questions found (not an error)
         return jsonify([])
     
     # Format response to match frontend expectations
@@ -355,10 +360,10 @@ def legacy_roadmap():
 
 # Run the application
 if __name__ == '__main__':
-    # Seed database with initial data if empty
+    # Seed database with initial data
     try:
         import subprocess
-        seed_script = os.path.join(current_dir, 'database', 'seed_data.py')
+        seed_script = os.path.join(os.path.dirname(__file__), 'database', 'seed_data.py')
         subprocess.run([sys.executable, seed_script], check=True)
     except Exception as e:
         print(f"Note: Could not run seed script: {e}")
